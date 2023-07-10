@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 const connectDB = async () => {
   try {
     // MongoDB connection string
-    const connectionString = process.env.MONGO_URL
+    const connectionString =
+      "mongodb://mongo:miCZjIdcfnMlXO0EHFLi@containers-us-west-17.railway.app:8013";
     // Connect to the MongoDB database
     await mongoose.connect(connectionString!);
 
@@ -15,4 +16,3 @@ const connectDB = async () => {
 };
 
 export default connectDB;
-
