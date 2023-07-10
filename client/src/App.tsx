@@ -1,15 +1,18 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { AuthPage } from "./pages/AuthPage";
-import { HomePage } from "./pages/HomePage";
+import { AuthPage } from "./views/AuthPage";
+import { HomePage } from "./views/HomePage";
+import { AuthProvider } from "./components/AuthProvider";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<AuthPage />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<AuthPage />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
