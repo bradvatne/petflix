@@ -1,6 +1,7 @@
+import registrationRouter from "./routes/auth/registrationRouter";
+import cors from 'cors'
+import express from 'express'
 
-const cors = require("cors");
-const express = require("express");
 const app = express();
 const port = 3001;
 
