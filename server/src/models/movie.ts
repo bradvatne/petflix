@@ -42,6 +42,6 @@ const MovieSchema: Schema = new Schema<IMovie>({
   isTrending: { type: Boolean, default: false },
 });
 
-const Movie = mongoose.model<IMovie>("Movie", MovieSchema);
+const Movies = mongoose.model<IMovie>("Petflix", MovieSchema, "Petflix");
 
-export { Movie, IMovie };
+export { Movies, IMovie };
