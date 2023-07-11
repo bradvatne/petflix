@@ -5,11 +5,13 @@ export const getMovies = createAsyncThunk(
   "movies/getMovies",
   async (_, { dispatch }) => {
     try {
-      const response = await fetch("/api/movies/login");
+      const response = await fetch("/api/movies/");
 
       if (response.ok) {
         const jsonData = await response.json();
-        dispatch(setMovies(jsonData));
+        console.log("backend", jsonData);
+        const movies = jsonData.response;
+        dispatch(setMovies([...movies]));
         return jsonData;
       } else {
         const errorData = await response.json();

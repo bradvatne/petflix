@@ -3,27 +3,16 @@ import { NavBar } from "../components/NavBar";
 import { SearchBar } from "../components/SearchBar";
 import { Trending } from "../components/Trending";
 import { Recommended } from "../components/Recommended";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovies } from "../store/async/moviesThunk";
+import { AppDispatch, RootState } from "../store/reducer";
 
 export const HomePage = () => {
-  const [data, setData] = useState();
-
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    fetchData();
+    dispatch(getMovies());
   }, []);
 
-  const fetchData = async () => {
-    const token = localStorage.getItem("token");
-    const res = await fetch("/api/movies", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const jsonData = await res.json();
-
-    setData(jsonData);
-    console.log(jsonData);
-    //setData(JSON.parse(res.body));
-  };
   return (
     <div className="w-full h-full bg-darkblue flex">
       <NavBar />
