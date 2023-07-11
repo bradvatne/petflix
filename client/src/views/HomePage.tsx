@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const HomePage = () => {
   const [data, setData] = useState();
@@ -8,7 +8,12 @@ export const HomePage = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await fetch("/api/movies");
+    const token = localStorage.getItem("token");
+    const res = await fetch("/api/movies", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const jsonData = await res.json();
 
     setData(jsonData);

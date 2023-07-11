@@ -3,12 +3,12 @@ import { Movies } from "../../models/movie";
 
 const moviesRouter = express.Router();
 
+//Add check for authentication
+
 const handler = async (req: Request, res: Response) => {
-  console.log("ding");
   try {
     const response = await Movies.find();
     if (response) {
-      console.log(response);
       return res.status(201).json({ response });
     }
   } catch (error) {

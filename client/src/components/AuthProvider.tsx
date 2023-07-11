@@ -14,8 +14,7 @@ const AuthContext = createContext<AuthContextType>({
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // You can have additional state variables like user data, tokens, etc.
-
+  //Need to store JWT in localstorage or cookie
   const login = async (formData: FormData) => {
     try {
       const response = await axios.post(
@@ -25,6 +24,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       console.log(response);
       if (response) {
         setIsLoggedIn(true);
+        localStorage.setItem("token", response.data);
       }
     } catch (error) {
       console.log(error);
@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     // Perform logout logic, set isLoggedIn to false, clear JWT, etc.
+    localStorage.removeItem("token");
   };
 
   // Other helper functions and state variables can be added as needed
