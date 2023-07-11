@@ -2,7 +2,7 @@ import { Icons } from "./ui/Icons";
 
 export const SearchBar = () => {
   return (
-    <div className="flex gap-[1.5rem] mt-16 w-full">
+    <div className="flex gap-[1.5rem] mt-16 ">
       <Icons.Search />
       <input
         type="search"

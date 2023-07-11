@@ -14,9 +14,9 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div className="w-full h-full bg-darkblue flex">
+    <div className="h-full bg-darkblue flex">
       <NavBar />
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col overflow-hidden">
         <SearchBar />
         <Trending />
         <Recommended />

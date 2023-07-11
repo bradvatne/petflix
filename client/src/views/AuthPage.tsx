@@ -15,7 +15,7 @@ export const AuthPage = () => {
     return <Navigate to="/" />;
   }
   return (
-    <div className="bg-darkblue w-full h-full flex justify-around items-center flex-col">
+    <div className="bg-darkblue h-full flex justify-around items-center flex-col">
       <Icons.MovieLogo />
       {loginMode ? <LoginCard /> : <RegisterCard />}
       <div></div>

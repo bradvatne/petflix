@@ -26,7 +26,7 @@ export const NavBar = () => {
   ];
 
   return (
-    <div className="m-8 w-24 max-h-[60rem] bg-semidarkblue rounded-[1.25rem] flex flex-col items-center justify-between py-8">
+    <div className="m-8 w-24 max-h-[60rem] bg-semidarkblue rounded-[1.25rem] flex flex-col items-center justify-between py-8 shrink-0">
       <div>
         <Icons.MovieLogo />
         <div className="flex flex-col gap-[40px] mt-[4.5rem] items-center">

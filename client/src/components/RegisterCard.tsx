@@ -34,7 +34,7 @@ export const RegisterCard = () => {
         </div>
         <button
           type="submit"
-          className="bg-red rounded-[.375rem] flex justify-center items-center h-[3rem] w-full text-white"
+          className="bg-red rounded-[.375rem] flex justify-center items-center h-[3rem] text-white"
         >
           Login to your account
         </button>
