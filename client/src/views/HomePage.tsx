@@ -16,7 +16,7 @@ export const HomePage = () => {
   return (
     <div className="w-full h-full bg-darkblue flex">
       <NavBar />
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <SearchBar />
         <Trending />
         <Recommended />
