@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
 import { useAuthContext } from "./AuthProvider";
 
-export const RegisterCard = () => {
+export const LogoutCard = () => {
   const { logout } = useAuthContext();
 
   return (
