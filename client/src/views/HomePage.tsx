@@ -25,7 +25,7 @@ export const HomePage = () => {
     //setData(JSON.parse(res.body));
   };
   return (
-    <div className="w-full h-full bg-semidarkblue flex">
+    <div className="w-full h-full bg-darkblue flex">
       <NavBar />
       <div className="flex flex-col">
         <SearchBar />
