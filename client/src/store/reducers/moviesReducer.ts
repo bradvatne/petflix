@@ -12,3 +12,5 @@ export const moviesSlice = createSlice({
     // Other movie-related reducers if needed
   },
 });
+
+export const { setMovies } = moviesSlice.actions;
