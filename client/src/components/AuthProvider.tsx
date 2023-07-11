@@ -52,6 +52,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     // Perform logout logic, set isLoggedIn to false, clear JWT, etc.
     localStorage.removeItem("token");
+    setIsLoggedIn(false);
   };
 
   // Other helper functions and state variables can be added as needed
