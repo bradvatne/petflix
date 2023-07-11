@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { NavBar } from "../components/NavBar";
+import { SearchBar } from "../components/SearchBar";
+import { Trending } from "../components/Trending";
+import { Recommended } from "../components/Recommended";
 
 export const HomePage = () => {
   const [data, setData] = useState();
@@ -20,5 +24,14 @@ export const HomePage = () => {
     console.log(jsonData);
     //setData(JSON.parse(res.body));
   };
-  return <pre className="whitespace-pre-wrap">{JSON.stringify(data)}</pre>;
+  return (
+    <div className="w-full h-full bg-semidarkblue flex">
+      <NavBar />
+      <div className="flex flex-col">
+        <SearchBar />
+        <Trending />
+        <Recommended />
+      </div>
+    </div>
+  );
 };
