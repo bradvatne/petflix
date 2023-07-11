@@ -4,7 +4,14 @@ const initialState = {
   user: null,
   loading: false,
   error: null,
-  isAuthenticated: false,
+  token: null,
+};
+
+export type AuthStateType = {
+  user: null | string;
+  loading: boolean;
+  error: null | Error;
+  token: null | string;
 };
 
 export const authSlice = createSlice({
@@ -30,13 +37,13 @@ export const authSlice = createSlice({
       state.user = null;
       state.error = null;
     },
-    isAuthenticated: (state, action) => {
-      state.isAuthenticated = action.payload;
+    token: (state, action) => {
+      state.token = action.payload;
     },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout } =
+export const { loginStart, loginSuccess, loginFailure, logout, token } =
   authSlice.actions;
 
 export default authSlice.reducer;

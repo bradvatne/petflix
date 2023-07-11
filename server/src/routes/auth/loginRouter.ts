@@ -24,13 +24,13 @@ loginRouter.post(
           };
           const secret = "thisisthejsonwebtokensecret";
           const token = jwt.sign(payload, secret);
-          return res.status(201).json({ success: token });
+          return res.status(201).json({ token, user });
         }
       }
     } catch (err) {
       console.log(err);
     }
-    return res.status(501).json({ error: "poopy pants" });
+    return res.status(509).json({ error: "poopy pants" });
   }
 );
 

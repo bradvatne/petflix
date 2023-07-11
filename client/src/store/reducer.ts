@@ -6,3 +6,8 @@ const store = configureStore({
 });
 
 export default store;
+// Extract the RootState type
+export type RootState = ReturnType<typeof store.getState>;
+
+// Use the typeof store.dispatch as the AppDispatch type
+export type AppDispatch = typeof store.dispatch;

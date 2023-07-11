@@ -7,16 +7,14 @@ import store from "./store/reducer";
 
 function App() {
   return (
-    <AuthProvider>
-      <Provider store={store}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<AuthPage />} />
-          </Routes>
-        </Router>
-      </Provider>
-    </AuthProvider>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<AuthPage />} />
+        </Routes>
+      </Router>
+    </Provider>
   );
 }
 

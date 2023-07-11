@@ -1,14 +1,22 @@
-import React, { FormEvent } from "react";
-import axios from "axios";
-import { useAuthContext } from "./AuthProvider";
+import { FormEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../store/async/authThunk";
+import { AnyAction } from "@reduxjs/toolkit";
+import { AppDispatch, RootState } from "../store/reducer";
+import { Navigate } from "react-router-dom";
+
 export const LoginCard = () => {
-  const { login } = useAuthContext();
+  const selectUser = useSelector((state: RootState) => state.auth.user);
+  const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    console.log(formData);
-    login(formData);
+    dispatch(loginUser(formData));
   };
+
+  if (selectUser) {
+    return <Navigate to="/" />;
+  }
   return (
     <div className="bg-semidarkblue rounded-[1.25rem] p-8 flex flex-col w-[25rem]">
       <h2 className="text-2xl text-white  tracking-[-0.03125rem]">Login</h2>

@@ -18,3 +18,4 @@ interface IMovie extends Document {
   isBookmarked: boolean;
   isTrending: boolean;
 }
+
