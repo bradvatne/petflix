@@ -1,18 +1,33 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../store/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store/reducer";
 import { Icons } from "./ui/Icons";
+import { useEffect, useState } from "react";
+import { setMovies } from "../store/reducers/moviesReducer";
 
 export const Trending = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const movies = useSelector((state: RootState) =>
     state.movies.filter((movie) => movie.isTrending)
   );
+
+  const shiftCarouselLeft = () => {
+    const [first, ...rest] = movies;
+    const shiftedMovies = [...rest, first];
+    dispatch(setMovies(shiftedMovies));
+  };
 
   return (
     <div className="overflow-hidden">
       <h1 className="text-[2rem] font-[300] text-white tracking-[-0.03125rem] mb-[1.5rem]">
         Trending
       </h1>
-      <div className="flex overflow-x-hidden gap-[2.5rem]">
+      <div className="flex overflow-x-hidden gap-[2.5rem] relative">
+        <button
+          className="absolute w-12 bg-black opacity-5 hover:opacity-25 right-0 z-50 h-[230px]"
+          onClick={() => shiftCarouselLeft()}
+        >
+          Click
+        </button>
         {movies &&
           movies.map((item, idx) => (
             <TrendingMovieCard movie={item} key={idx} />
@@ -41,7 +56,9 @@ const TrendingMovieCard = ({ movie }: { movie: IMovie }) => {
               <Icons.Dot />
               {movie.rating}
             </div>
-            <div className="text-[1.5rem] font-[500] whitespace-nowrap">{movie.title}</div>
+            <div className="text-[1.5rem] font-[500] whitespace-nowrap">
+              {movie.title}
+            </div>
           </div>
         </div>
 
