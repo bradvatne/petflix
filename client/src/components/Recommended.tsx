@@ -10,7 +10,7 @@ export const Recommended = () => {
       <h1 className="text-[2rem] font-[300] text-white tracking-[-0.03125rem] mt-[2.5rem] mb-[1.5rem]">
         Recommended
       </h1>
-      <div className="flex flex-wrap gap-4 lg:gap-6 2xl:gap-10">
+      <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[2.5rem]">
         {movies &&
           movies.map((item, idx) => (
             <RecommendedMovieCard movie={item} key={idx} />
