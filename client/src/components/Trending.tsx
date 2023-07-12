@@ -14,7 +14,7 @@ export const Trending = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden shrink-0">
       <h1 className="text-[2rem] font-[300] text-white tracking-[-0.03125rem] mb-[1.5rem]">
         Trending
       </h1>
@@ -38,12 +38,12 @@ const TrendingMovieCard = ({ movie }: { movie: IMovie }) => {
   return (
     <div className="overflow-hidden flex shrink-0">
       <div
-        className="w-[470px] h-[230px] text-white relative bg-contain rounded-lg overflow-hidden flex"
+        className="w-[470px] h-[230px] text-white relative bg-contain rounded-lg overflow-hidden flex shrink-0"
         style={{ backgroundImage: `url(${movie.thumbnail.trending.large})` }}
       >
         <div className="flex items-end ml-6 mb-6">
           <div>
-            <div className="flex gap-2 text-[0.9375rem] opacity-75 items-center w-full shrink-0">
+            <div className="flex gap-2 text-[0.9375rem] opacity-75 items-center w-full">
               {movie.year}
               <Icons.Dot />
               <div className="flex gap-[.3rem] items-center shrink-0 whitespace-nowrap">
