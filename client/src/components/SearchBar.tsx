@@ -6,6 +6,7 @@ export const SearchBar = () => {
       <Icons.Search />
       <input
         type="search"
+        placeholder="Search for movies or TV series"
         className="mb-[1.2rem] bg-transparent border-b border-darkblue  focus:ring-none focus:outline-none text-white text-[1.5rem] font-[300] pb-[1rem] focus:border-greyishblue w-full"
       />
     </div>
