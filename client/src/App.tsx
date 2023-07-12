@@ -3,7 +3,7 @@ import { AuthPage } from "./views/AuthPage";
 import { HomePage } from "./views/HomePage";
 import { AuthProvider } from "./components/AuthProvider";
 import { Provider } from "react-redux";
-import store from "./store/reducer";
+import store from "./store/store";
 
 function App() {
   return (

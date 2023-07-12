@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../store/reducer";
+import { RootState } from "../store/store";
 import { Icons } from "./ui/Icons";
 
 export const Recommended = () => {

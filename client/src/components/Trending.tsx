@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/reducer";
+import { AppDispatch, RootState } from "../store/store";
 import { Icons } from "./ui/Icons";
 import { setTrendingMovies } from "../store/reducers/trendingSlice";
 

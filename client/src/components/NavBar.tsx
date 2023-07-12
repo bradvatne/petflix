@@ -1,11 +1,13 @@
 import React, { FC, ReactNode } from "react";
 import { Icons } from "./ui/Icons";
+import { useDispatch } from "react-redux";
+import { setCurrentPage } from "../store/reducers/navSlice";
 
 export const NavBar = () => {
   const links: NavItemType[] = [
     {
       id: 0,
-      title: "Featured",
+      title: "Trending",
       icon: <Icons.Trending />,
     },
     {
@@ -49,7 +51,12 @@ type NavItemType = {
 };
 
 const NavItem = ({ navItem }: { navItem: NavItemType }) => {
-  return <button>{navItem.icon}</button>;
+  const dispatch = useDispatch();
+  return (
+    <button onClick={() => dispatch(setCurrentPage(navItem.id))}>
+      {navItem.icon}
+    </button>
+  );
 };
 
 const Avatar = () => {

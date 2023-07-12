@@ -2,7 +2,7 @@ import { FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../store/async/authThunk";
 import { AnyAction } from "@reduxjs/toolkit";
-import { AppDispatch, RootState } from "../store/reducer";
+import { AppDispatch, RootState } from "../store/store";
 import { Navigate } from "react-router-dom";
 
 export const LoginCard = () => {

@@ -5,7 +5,7 @@ import { Trending } from "../components/Trending";
 import { Recommended } from "../components/Recommended";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../store/async/moviesThunk";
-import { AppDispatch, RootState } from "../store/reducer";
+import { AppDispatch, RootState } from "../store/store";
 
 export const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
