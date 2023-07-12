@@ -1,19 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/reducer";
 import { Icons } from "./ui/Icons";
-import { useEffect, useState } from "react";
-import { setMovies } from "../store/reducers/moviesReducer";
+import { setTrendingMovies } from "../store/reducers/trendingSlice";
 
 export const Trending = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const movies = useSelector((state: RootState) =>
-    state.movies.filter((movie) => movie.isTrending)
-  );
+  const movies = useSelector((state: RootState) => state.trending);
 
   const shiftCarouselLeft = () => {
     const [first, ...rest] = movies;
     const shiftedMovies = [...rest, first];
-    dispatch(setMovies(shiftedMovies));
+    dispatch(setTrendingMovies(shiftedMovies));
   };
 
   return (
