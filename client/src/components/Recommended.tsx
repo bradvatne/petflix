@@ -26,7 +26,7 @@ export const Recommended = () => {
   }, [recommended, searchState]);
 
   return (
-    <div className="pr-8">
+    <div className="lg:pr-8">
       <h1 className="text-[2rem] font-[300] text-white tracking-[-0.03125rem] mt-[2.5rem] mb-[1.5rem]">
         Recommended
       </h1>

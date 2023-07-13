@@ -28,7 +28,7 @@ export const AllMovies = () => {
   }, [movies, searchState]);
 
   return (
-    <div className="pr-8">
+    <div className="lg:pr-8">
       <h1 className="text-[2rem] font-[300] text-white tracking-[-0.03125rem] mb-[1.5rem] ">
         All Movies
       </h1>

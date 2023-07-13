@@ -8,7 +8,7 @@ export const SearchBar = () => {
   const searchValue = useSelector<RootState>((state) => state.search) as string;
 
   return (
-    <div className="flex gap-[1.5rem] mt-16 ">
+    <div className="flex gap-[1.5rem] mt-[1.5rem] lg:mt-16 ">
       <Icons.Search />
       <input
         type="search"

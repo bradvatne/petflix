@@ -26,7 +26,7 @@ export const Bookmarked = () => {
   }, [bookmarked, searchState]);
   return (
     <>
-      <div className="pr-8">
+      <div className="lg:pr-8">
         <h1 className="text-[2rem] font-[300] text-white tracking-[-0.03125rem] mb-[1.5rem] ">
           Bookmarked Movies
         </h1>
@@ -37,7 +37,7 @@ export const Bookmarked = () => {
               .map((item, idx) => <VideoCard movie={item} key={idx} />)}
         </div>
       </div>
-      <div className="pr-8">
+      <div className="lg:pr-8">
         <h1 className="text-[2rem] font-[300] text-white tracking-[-0.03125rem] mt-[2.5rem] mb-[1.5rem] ">
           Bookmarked TV Series
         </h1>
