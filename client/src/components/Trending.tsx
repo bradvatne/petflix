@@ -2,16 +2,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
 import { Icons } from "./ui/Icons";
 import { setTrendingMovies } from "../store/reducers/trendingSlice";
+import { useEffect, useState } from "react";
+import Fuse from "fuse.js";
 
 export const Trending = () => {
   const dispatch = useDispatch<AppDispatch>();
   const movies = useSelector((state: RootState) => state.trending);
+  const searchState = useSelector((state: RootState) => state.search);
+  const [searchResults, setSearchResults] = useState(movies);
 
   const shiftCarouselLeft = () => {
     const [first, ...rest] = movies;
     const shiftedMovies = [...rest, first];
     dispatch(setTrendingMovies(shiftedMovies));
   };
+
+  useEffect(() => {
+    if (movies && movies.length > 0) {
+      const fuse = new Fuse(movies, {
+        keys: ["title"], // Adjust according to your data
+        includeScore: true,
+      });
+
+      if (searchState) {
+        const results = fuse.search(searchState);
+        setSearchResults(results.map(({ item }) => item));
+      } else {
+        setSearchResults(movies);
+      }
+    }
+  }, [movies, searchState]);
 
   return (
     <div className="overflow-hidden shrink-0">
@@ -25,8 +45,8 @@ export const Trending = () => {
         >
           Click
         </button>
-        {movies &&
-          movies.map((item, idx) => (
+        {searchResults &&
+          searchResults.map((item, idx) => (
             <TrendingMovieCard movie={item} key={idx} />
           ))}
       </div>

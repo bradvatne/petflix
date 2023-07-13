@@ -1,10 +1,31 @@
-import React from "react";
+import Fuse from "fuse.js";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { VideoCard } from "./VideoCard";
+import { useEffect, useState } from "react";
 
 export const AllMovies = () => {
-  const movies = useSelector((state: RootState) => state.movies);
+  const movies = useSelector((state: RootState) =>
+    state.movies.filter((item) => item.category === "Movie")
+  );
+  const searchState = useSelector((state: RootState) => state.search);
+  const [searchResults, setSearchResults] = useState(movies);
+
+  useEffect(() => {
+    if (movies && movies.length > 0) {
+      const fuse = new Fuse(movies, {
+        keys: ["title"], // Adjust according to your data
+        includeScore: true,
+      });
+
+      if (searchState) {
+        const results = fuse.search(searchState);
+        setSearchResults(results.map(({ item }) => item));
+      } else {
+        setSearchResults(movies);
+      }
+    }
+  }, [movies, searchState]);
 
   return (
     <div className="pr-8">
@@ -12,10 +33,10 @@ export const AllMovies = () => {
         All Movies
       </h1>
       <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[2.5rem] ">
-        {movies &&
-          movies
-            .filter((item) => item.category === "Movie")
-            .map((item, idx) => <VideoCard movie={item} key={idx} />)}
+        {searchResults &&
+          searchResults.map((item, idx) => (
+            <VideoCard movie={item} key={idx} />
+          ))}
       </div>
     </div>
   );

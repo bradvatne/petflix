@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { VideoCard } from "./VideoCard";
+import Fuse from "fuse.js";
 
 export const TVShows = () => {
-  const tvshows = useSelector((state: RootState) => state.movies);
+  const tvshows = useSelector((state: RootState) =>
+    state.movies.filter((show) => show.category === "TV Series")
+  );
+  const searchState = useSelector((state: RootState) => state.search);
+  const [searchResults, setSearchResults] = useState(tvshows);
+
+  useEffect(() => {
+    if (tvshows && tvshows.length > 0) {
+      const fuse = new Fuse(tvshows, {
+        keys: ["title"], // Adjust according to your data
+        includeScore: true,
+      });
+
+      if (searchState) {
+        const results = fuse.search(searchState);
+        setSearchResults(results.map(({ item }) => item));
+      } else {
+        setSearchResults(tvshows);
+      }
+    }
+  }, [tvshows, searchState]);
 
   return (
     <div className="pr-8">
@@ -12,8 +33,8 @@ export const TVShows = () => {
         All TV Series
       </h1>
       <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[2.5rem] ">
-        {tvshows &&
-          tvshows
+        {searchResults &&
+          searchResults
             .filter((item) => item.category === "TV Series")
             .map((item, idx) => <VideoCard movie={item} key={idx} />)}
       </div>
