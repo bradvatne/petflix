@@ -18,7 +18,7 @@ export const HomePage = () => {
   return (
     <div className="h-full bg-darkblue flex">
       <NavBar />
-      <div className="flex flex-col overflow-x-hidden overflow-y-scroll">
+      <div className="flex flex-col overflow-x-hidden overflow-y-scroll w-full">
         <SearchBar />
         {currentPage === 0 && (
           <>

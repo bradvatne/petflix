@@ -2,7 +2,7 @@ import { Icons } from "./ui/Icons";
 
 export const VideoCard = ({ movie }: { movie: IMovie }) => {
   return (
-    <div className="flex flex-col basis-1/4 lg:basis-1/5 xl:basis-1/6 flex-grow flex-shrink ">
+    <div className="flex flex-col">
       <div
         className="text-white relative bg-cover rounded-lg overflow-hidden flex flex-wrap bg-no-repeat aspect-[1.6/1] "
         style={{ backgroundImage: `url(${movie.thumbnail.regular.large})` }}
