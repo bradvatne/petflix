@@ -8,6 +8,7 @@ import { getMovies } from "../store/async/moviesThunk";
 import { AppDispatch, RootState } from "../store/store";
 import { AllMovies } from "../components/AllMovies";
 import { TVShows } from "../components/TVShows";
+import { Bookmarked } from "../components/Bookmarked";
 
 export const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -32,9 +33,14 @@ export const HomePage = () => {
             <AllMovies />
           </>
         )}
-         {currentPage === 2 && (
+        {currentPage === 2 && (
           <>
             <TVShows />
+          </>
+        )}
+        {currentPage === 3 && (
+          <>
+            <Bookmarked />
           </>
         )}
       </div>
