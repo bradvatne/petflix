@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../store/async/moviesThunk";
 import { AppDispatch, RootState } from "../store/store";
 import { AllMovies } from "../components/AllMovies";
+import { TVShows } from "../components/TVShows";
 
 export const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -29,6 +30,11 @@ export const HomePage = () => {
         {currentPage === 1 && (
           <>
             <AllMovies />
+          </>
+        )}
+         {currentPage === 2 && (
+          <>
+            <TVShows />
           </>
         )}
       </div>
