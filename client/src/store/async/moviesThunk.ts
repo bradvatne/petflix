@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { setMovies } from "../reducers/moviesReducer";
 import { setTrendingMovies } from "../reducers/trendingSlice";
+import { setCurrentPage } from "../reducers/navSlice";
 
 export const getMovies = createAsyncThunk(
   "movies/getMovies",
@@ -14,6 +15,7 @@ export const getMovies = createAsyncThunk(
         const movies = jsonData.response as IMovie[];
         dispatch(setMovies([...movies]));
         dispatch(setTrendingMovies(movies.filter((movie) => movie.isTrending)));
+        dispatch(setCurrentPage(0));
         return jsonData;
       } else {
         const errorData = await response.json();

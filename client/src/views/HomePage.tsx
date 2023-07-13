@@ -6,9 +6,11 @@ import { Recommended } from "../components/Recommended";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../store/async/moviesThunk";
 import { AppDispatch, RootState } from "../store/store";
+import { AllMovies } from "../components/AllMovies";
 
 export const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const currentPage = useSelector((state: RootState) => state.nav.currentPage);
   useEffect(() => {
     dispatch(getMovies());
   }, []);
@@ -18,8 +20,17 @@ export const HomePage = () => {
       <NavBar />
       <div className="flex flex-col overflow-x-hidden overflow-y-scroll">
         <SearchBar />
-        <Trending />
-        <Recommended />
+        {currentPage === 0 && (
+          <>
+            <Trending />
+            <Recommended />
+          </>
+        )}
+        {currentPage === 1 && (
+          <>
+            <AllMovies />
+          </>
+        )}
       </div>
     </div>
   );
