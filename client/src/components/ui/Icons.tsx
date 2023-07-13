@@ -9,6 +9,7 @@ export const Icons = {
         height="27"
         viewBox="0 0 33 27"
         fill="none"
+        className="hover:opacity-25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -30,6 +31,7 @@ export const Icons = {
         height="20"
         viewBox="0 0 20 20"
         fill="none"
+        className="hover:opacity-25"
       >
         <path
           fillRule="evenodd"
@@ -52,6 +54,7 @@ export const Icons = {
         height="20"
         viewBox="0 0 20 20"
         fill="none"
+        className="hover:opacity-25"
       >
         <path
           fillRule="evenodd"
@@ -73,6 +76,7 @@ export const Icons = {
         height="20"
         viewBox="0 0 20 20"
         fill="none"
+        className="hover:opacity-25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -95,6 +99,7 @@ export const Icons = {
         height="20"
         viewBox="0 0 17 20"
         fill="none"
+        className="hover:opacity-25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -110,6 +115,7 @@ export const Icons = {
       height="32"
       viewBox="0 0 32 32"
       fill="none"
+      className="hover:opacity-25"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle opacity="0.500647" cx="16" cy="16" r="16" fill="#10141E" />
@@ -127,6 +133,7 @@ export const Icons = {
       height="32"
       viewBox="0 0 32 32"
       fill="none"
+      className="hover:opacity-25"
     >
       <rect opacity="0.01" width="32" height="32" fill="black" />
       <path
@@ -144,6 +151,7 @@ export const Icons = {
       height="12"
       viewBox="0 0 12 12"
       fill="none"
+      className="hover:opacity-25"
     >
       <path
         fillRule="evenodd"
