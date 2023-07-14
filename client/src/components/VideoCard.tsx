@@ -4,7 +4,7 @@ export const VideoCard = ({ movie }: { movie: IMovie }) => {
   return (
     <div className="flex flex-col">
       <div
-        className="text-white relative bg-cover rounded-lg overflow-hidden flex flex-wrap bg-no-repeat aspect-[1.6/1] "
+        className="text-white relative bg-cover rounded-lg overflow-hidden flex flex-wrap bg-no-repeat aspect-[1.6/1] hover:bg-blend-overlay hover:bg-white hover:bg-opacity-5 hover:cursor-pointer transition-all duration-500 "
         style={{ backgroundImage: `url(${movie.thumbnail.regular.large})` }}
       >
         <div className="flex w-full justify-end">
