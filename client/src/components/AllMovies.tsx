@@ -5,9 +5,7 @@ import { VideoCard } from "./VideoCard";
 import { useEffect, useState } from "react";
 
 export const AllMovies = () => {
-  const movies = useSelector((state: RootState) =>
-    state.movies.filter((item) => item.category === "Movie")
-  );
+  const movies = useSelector((state: RootState) => state.movies);
   const searchState = useSelector((state: RootState) => state.search);
   const [searchResults, setSearchResults] = useState(movies);
 
@@ -25,7 +23,7 @@ export const AllMovies = () => {
         setSearchResults(movies);
       }
     }
-  }, [movies, searchState]);
+  }, [movies]);
 
   return (
     <div className="lg:pr-8">
@@ -34,9 +32,9 @@ export const AllMovies = () => {
       </h1>
       <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[2.5rem] ">
         {searchResults &&
-          searchResults.map((item, idx) => (
-            <VideoCard movie={item} key={idx} />
-          ))}
+          searchResults
+            .filter((item) => item.category === "Movie")
+            .map((item, idx) => <VideoCard movie={item} key={idx} />)}
       </div>
     </div>
   );

@@ -5,9 +5,7 @@ import { VideoCard } from "./VideoCard";
 import Fuse from "fuse.js";
 
 export const TVShows = () => {
-  const tvshows = useSelector((state: RootState) =>
-    state.movies.filter((show) => show.category === "TV Series")
-  );
+  const tvshows = useSelector((state: RootState) => state.movies);
   const searchState = useSelector((state: RootState) => state.search);
   const [searchResults, setSearchResults] = useState(tvshows);
 

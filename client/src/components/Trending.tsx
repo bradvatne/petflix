@@ -31,7 +31,7 @@ export const Trending = () => {
         setSearchResults(movies);
       }
     }
-  }, [movies, searchState]);
+  }, [movies,]);
 
   return (
     <div className="overflow-hidden shrink-0">
